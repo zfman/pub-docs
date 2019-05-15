@@ -1,6 +1,99 @@
-## 早教系统
+### 接口数据格式
 
-> 项目参见 [早教系统-课表软件](https://github.com/zfman/childtimetable)，该项目为私有项目，只有作者可以查看
+- 添加课程
+
+提交参数：
+```
+    name:课程名
+    teacher:教师
+    room:教室
+    weeks，上课周次，以空格分隔，如:1 3 4 5 6
+    day:星期，整数，如1表示星期一
+    start:起始节次，整数，如3表示第三小节开始上课
+    step:持续节次，整数，如2表示持续两节
+```
+
+响应结果：
+```json
+{
+	"code":200,
+	"msg":"成功",
+	"data":{
+		"courseId":1
+	}
+}
+```
+
+- 删除课程
+
+提交参数：
+```
+    courseId:课程ID
+```
+
+响应结果：
+```json
+{
+	"code":200,
+	"msg":"成功",
+	"data":{}
+}
+```
+
+- 编辑课程
+
+提交参数：
+```
+    courseId:课程ID
+    name:课程名
+    teacher:教师
+    room:教室
+    weeks，上课周次，以空格分隔，如:1 3 4 5 6
+    day:星期，整数，如1表示星期一
+    start:起始节次，整数，如3表示第三小节开始上课
+    step:持续节次，整数，如2表示持续两节
+```
+
+响应结果：
+```json
+{
+	"code":200,
+	"msg":"成功",
+	"data":{}
+}
+```
+
+- 获取该用户课程
+
+响应结果：
+```json
+{
+    "code":200,
+    "msg":"成功",
+    "data":[
+        {
+            "courseId":1,
+            "name":"计算机在化学中的应用",
+            "room":"理化楼207",
+            "teacher":"赵雷",
+            "weeks":"1 3 6 7 8 9",
+            "start":1,
+            "step":3,
+            "day":2
+        },
+        {
+            "courseId":2,
+            "name":"高等数学",
+            "room":"教学楼201",
+            "teacher":"赵六",
+            "weeks":"1 3 6 10 11 12 13 14 15",
+            "start":3,
+            "step":5,
+            "day":2
+        }
+    ]
+}
+```
 
 ### 包结构
 
@@ -12,18 +105,15 @@
         service: 接口的参数、响应结果定义规范
         ApiUtils.java: 请求工具类，初始化Retrofit
         TimetableRequest.java: 请求类
-        
     fragment: 也是视图层
         FuncFragment: 主页面左侧的页面
         ScheduleFragment: 主页面右侧的页面
-        
     other: 杂项
         event: 事件总线Event用到的类
         tools: 工具类
         AddModel.java: 添加课程时用来存储每个时间段的信息
         ScheduleDao.java: 工具类
         ShareConstants.java: 存储到本地的键常量
-        
     LoginActivity.java: 登陆页面
     MyApplication.java: 在Application中对一些第三库初始化
 ```
@@ -131,7 +221,7 @@ public class TimetableRequest {
 
 - 使用
 
-**获取课程，参见`LoginActivity#getCourses()`**
+**获取课程，参见LoginActivity#getCourses() **
 
 ```java
 public void getCourses(){
@@ -180,7 +270,7 @@ public void getCourses(){
     }
 ```
 
-**获取课程，参见`ScheduleDao#delete`**
+**获取课程，参见ScheduleDao#delete **
 
 ```java
 public static void delete(final Activity context, Schedule schedule) {
@@ -221,7 +311,7 @@ public static void delete(final Activity context, Schedule schedule) {
     }
 ```
 
-**添加课程 `AddTimetableActivity#postDataToServer`**
+**添加课程，AddTimetableActivity#postDataToServer **
 
 ```java
 private void postDataToServer(final List<TimetableModel> models) {
@@ -277,7 +367,7 @@ private void postDataToServer(final List<TimetableModel> models) {
     }
 ```
 
-**修改课程 `AddTimetableActivity#postDataToServerForModify`**
+**修改课程，AddTimetableActivity#postDataToServerForModify **
 
 ```java
 /**
@@ -329,7 +419,7 @@ private void postDataToServer(final List<TimetableModel> models) {
 
 ### 通知页面逻辑
 
-> 参见 TimetableNotifyActivity#addCourseItemView
+参见 TimetableNotifyActivity#addCourseItemView
 
 要求今日点击之后该课程在今日不再显示，具体逻辑如下：
 
@@ -387,7 +477,7 @@ private void addCourseItemView(List<Schedule> list,ScheduleName scheduleName) {
 	}
 ```
 
-**ScheduleDao.java**
+ScheduleDao.java
 
 ```java
 /**
