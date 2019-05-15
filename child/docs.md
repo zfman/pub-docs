@@ -131,7 +131,7 @@ public class TimetableRequest {
 
 - 使用
 
-**获取课程，参见LoginActivity#getCourses() **
+**获取课程，参见`LoginActivity#getCourses()`**
 
 ```java
 public void getCourses(){
@@ -180,7 +180,7 @@ public void getCourses(){
     }
 ```
 
-**获取课程，参见ScheduleDao#delete **
+**获取课程，参见`ScheduleDao#delete`**
 
 ```java
 public static void delete(final Activity context, Schedule schedule) {
@@ -221,7 +221,7 @@ public static void delete(final Activity context, Schedule schedule) {
     }
 ```
 
-**添加课程，AddTimetableActivity#postDataToServer **
+**添加课程 `AddTimetableActivity#postDataToServer`**
 
 ```java
 private void postDataToServer(final List<TimetableModel> models) {
@@ -277,7 +277,7 @@ private void postDataToServer(final List<TimetableModel> models) {
     }
 ```
 
-**修改课程，AddTimetableActivity#postDataToServerForModify **
+**修改课程 `AddTimetableActivity#postDataToServerForModify`**
 
 ```java
 /**
@@ -329,7 +329,7 @@ private void postDataToServer(final List<TimetableModel> models) {
 
 ### 通知页面逻辑
 
-参见 TimetableNotifyActivity#addCourseItemView
+> 参见 TimetableNotifyActivity#addCourseItemView
 
 要求今日点击之后该课程在今日不再显示，具体逻辑如下：
 
@@ -387,7 +387,7 @@ private void addCourseItemView(List<Schedule> list,ScheduleName scheduleName) {
 	}
 ```
 
-ScheduleDao.java
+**ScheduleDao.java**
 
 ```java
 /**
