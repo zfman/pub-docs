@@ -1,6 +1,6 @@
-### 接口数据格式
+## 接口数据格式
 
-- 添加课程
+### 添加课程
 
 提交参数：
 ```
@@ -24,7 +24,7 @@
 }
 ```
 
-- 删除课程
+### 删除课程
 
 提交参数：
 ```
@@ -40,7 +40,7 @@
 }
 ```
 
-- 编辑课程
+### 编辑课程
 
 提交参数：
 ```
@@ -63,7 +63,7 @@
 }
 ```
 
-- 获取该用户课程
+### 获取该用户课程
 
 响应结果：
 ```json
@@ -95,7 +95,7 @@
 }
 ```
 
-### 包结构
+## 包结构
 
 ```
     activity: 视图层
@@ -118,7 +118,7 @@
     MyApplication.java: 在Application中对一些第三库初始化
 ```
 
-### 网络请求
+## 网络请求
 
 现在的网络请求数据用的是[RAP](http://rap2.taobao.org/)模拟的，你需要修改api/constants包下的UrlContacts.java 文件
 ```java
@@ -417,7 +417,7 @@ private void postDataToServer(final List<TimetableModel> models) {
 ```
 
 
-### 通知页面逻辑
+## 通知页面逻辑
 
 参见 TimetableNotifyActivity#addCourseItemView
 
