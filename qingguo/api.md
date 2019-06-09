@@ -6,7 +6,10 @@ POST
 
 http://www.xiqueer.com:8080/manager//wap/wapController.jsp
 
-param=3czwmo3sgu262riyym2p51nb2jsc3a3fyotc3hrcp22uj6413oa4un3icnq02dvi483n3w15&appinfo=android2.4.302&param2=7423314bc1adda2bfe9a50898af05a74&token=00000
+param=3czwmo3sgu262riyym2p51nb2jsc3a3fyotc3hrcp22uj6413oa4un3icnq02dvi483n3w15
+&appinfo=android2.4.302
+&param2=7423314bc1adda2bfe9a50898af05a74
+&token=00000
 
 [
     {
