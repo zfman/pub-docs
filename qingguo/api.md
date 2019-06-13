@@ -1,40 +1,504 @@
 # API
+每个接口请求的地址均一致，请求参数也一致，真正的参数经拼接、加密后生成param、param2两个参数，token用于标识用户，登录时token为00000，登录成功后会返回token，携带token访问其他接口
 
-### 获取学校
+- [参数加密方法以及接口参数](https://github.com/zfman/pub-docs/blob/master/qingguo/%E5%8A%A0%E5%AF%86%E6%96%B9%E6%B3%95.md)
+- [请求接口定义以及示例](https://github.com/zfman/pub-docs/blob/master/qingguo/%E8%AF%B7%E6%B1%82%E7%A4%BA%E4%BE%8B.md)
+
+### 登录-数据格式
 ```json
-POST
-
-http://www.xiqueer.com:8080/manager//wap/wapController.jsp
-
-param=3czwmo3sgu262riyym2p51nb2jsc3a3fyotc3hrcp22uj6413oa4un3icnq02dvi483n3w15
-&appinfo=android2.4.302
-&param2=7423314bc1adda2bfe9a50898af05a74
-&token=00000
-
-[
-    {
-        "xxdm": "333456",
-        "xxmc": "安徽滁州技师学院",
-        "pinyin": "anhuichuzhoujishixueyuan",
-        "serviceUrl": "http://www.xiqueer.com:8080/manager/"
-    },
-    {
-        "xxdm": "13336",
-        "xxmc": "安徽电气工程职业技术学院",
-        "pinyin": "anhuidianqigongchengzhiyejishuxueyuan",
-        "serviceUrl": "http://www.xiqueer.com:8080/manager/"
-    }
-]
+{
+    "xqzhstate": "0",
+    "jw": "1.13",
+    "xqdlzh": "学生学号",
+    "xqzh": "b2241547544272865076a",
+    "xkljms": "1",
+    "xm": "学生姓名",
+    "userid": "学生用户ID",
+    "pcurl": "http://www.xiqueer.com:80/pc/",
+    "usertype": "STU",
+    "imurl": "47.104.81.149:21000",
+    "xz": "0",
+    "msg": "通过身份验证！",
+    "flag": "0",
+    "token": "689586",
+    "ispay": "FALSE",
+    "serviceurl": "http://www.xiqueer.com:8080/manager/",
+    "uuid": "学生UUID",
+    "rzfs": "教务",
+    "grantmodule": "教务;",
+    "imfs": "jiguang",
+    "kbbzrel": "1",
+    "xxdm": "学校ID",
+    "xxmc": "学校名称",
+    "moduleVerInfo": [
+        {
+            "moduleversion": "02",
+            "modulecode": "jw",
+            "ver": "1.13"
+        },
+        {
+            "moduleversion": "",
+            "modulecode": "mh",
+            "ver": "0"
+        },
+        {
+            "moduleversion": "",
+            "modulecode": "rl",
+            "ver": ""
+        },
+        {
+            "moduleversion": "",
+            "modulecode": "oa",
+            "ver": "0"
+        },
+        {
+            "moduleversion": "",
+            "modulecode": "sx",
+            "ver": ""
+        },
+        {
+            "moduleversion": "",
+            "modulecode": "su",
+            "ver": ""
+        }
+    ]
+}
 ```
 
-### 登录
+### 获取学期-数据格式
+```json
+{
+    "xnxq":[
+        {
+            "dm":"20191",
+            "mc":"2019-2020学年第二学期",
+            "dqxq":"0"
+        },
+        {
+            "dm":"20190",
+            "mc":"2019-2020学年第一学期",
+            "dqxq":"0"
+        },
+        {
+            "dm":"20181",
+            "mc":"2018-2019学年第二学期",
+            "dqxq":"1"
+        },
+        {
+            "dm":"20180",
+            "mc":"2018-2019学年第一学期",
+            "dqxq":"0"
+        },
+        {
+            "dm":"20171",
+            "mc":"2017-2018学年第二学期",
+            "dqxq":"0"
+        },
+        {
+            "dm":"20170",
+            "mc":"2017-2018学年第一学期",
+            "dqxq":"0"
+        },
+        {
+            "dm":"20161",
+            "mc":"2016-2017学年第二学期",
+            "dqxq":"0"
+        },
+        {
+            "dm":"20160",
+            "mc":"2016-2017学年第一学期",
+            "dqxq":"0"
+        },
+        {
+            "dm":"20151",
+            "mc":"2015-2016学年第二学期",
+            "dqxq":"0"
+        },
+        {
+            "dm":"20150",
+            "mc":"2015-2016学年第一学期",
+            "dqxq":"0"
+        },
+        {
+            "dm":"20141",
+            "mc":"2014-2015学年第二学期",
+            "dqxq":"0"
+        },
+        {
+            "dm":"20140",
+            "mc":"2014-2015学年第一学期",
+            "dqxq":"0"
+        },
+        {
+            "dm":"20131",
+            "mc":"2013-2014学年第二学期",
+            "dqxq":"0"
+        },
+        {
+            "dm":"20130",
+            "mc":"2013-2014学年第一学期",
+            "dqxq":"0"
+        },
+        {
+            "dm":"20121",
+            "mc":"2012-2013学年第二学期",
+            "dqxq":"0"
+        },
+        {
+            "dm":"20120",
+            "mc":"2012-2013学年第一学期",
+            "dqxq":"0"
+        },
+        {
+            "dm":"20111",
+            "mc":"2011-2012学年第二学期",
+            "dqxq":"0"
+        },
+        {
+            "dm":"20110",
+            "mc":"2011-2012学年第一学期",
+            "dqxq":"0"
+        },
+        {
+            "dm":"20101",
+            "mc":"2010-2011学年第二学期",
+            "dqxq":"0"
+        },
+        {
+            "dm":"20100",
+            "mc":"2010-2011学年第一学期",
+            "dqxq":"0"
+        },
+        {
+            "dm":"20091",
+            "mc":"2009-2010学年第二学期",
+            "dqxq":"0"
+        },
+        {
+            "dm":"20090",
+            "mc":"2009-2010学年第一学期",
+            "dqxq":"0"
+        },
+        {
+            "dm":"20081",
+            "mc":"2008-2009学年第二学期",
+            "dqxq":"0"
+        },
+        {
+            "dm":"20080",
+            "mc":"2008-2009学年第一学期",
+            "dqxq":"0"
+        },
+        {
+            "dm":"20071",
+            "mc":"2007-2008学年第二学期",
+            "dqxq":"0"
+        },
+        {
+            "dm":"20070",
+            "mc":"2007-2008学年第一学期",
+            "dqxq":"0"
+        }
+    ]
+}
 ```
-POST
 
-http://www.xiqueer.com:8080/manager//wap/wapController.jsp
 
-param=3qp1pg3n32p92kdsh72mr53r3icz8o2uipwp3es54h2d92ab3oawko2pqb4g3lbs5d3norls2riy6y2ojfx33npux02ui2q22jsak02guddr2rjz9y3hrb773hr45i3to0ty3dk8u82lkibu2js2vl3owgx63fdojx2ny6fs2ilhns2ny0at3e6ux53oazq93gk9rw33gucz3hrbw93npdzn31ofnj2gu8r33iyfl12nckpj3icia22ui5t62p5ceo2ny7zb2kz9mo2ojod12js2w03t28up2m64u62gub2b3gkcuu3n45bk004fuy
-&appinfo=android2.4.302
-&param2=a25b47625819ed337fe31dbfdfd4da0e
-&token=00000
+### 获取课程-数据格式
+```json
+{
+    "xn":"2018",
+    "bz":[
+
+    ],
+    "zc":"16",
+    "maxjc":"10",
+    "jssj":"2019-06-16",
+    "week1":[
+        {
+            "skbjmc":"商英1807",
+            "dsz":"0",
+            "skzs":"1-18周",
+            "jcxx":"3-4",
+            "xq":"新校区",
+            "jcdm":"03,04",
+            "skbj":"100018-008",
+            "txxx":"",
+            "sftk":"0",
+            "skbh":"",
+            "skdd":"教北0107",
+            "rkjs":"徐京櫆",
+            "jsdm":"374",
+            "rs":"48",
+            "kcmc":"演讲与口才",
+            "xf":"2.0"
+        },
+        {
+            "skbjmc":"商英1807 商英1808",
+            "dsz":"0",
+            "skzs":"1-16周",
+            "jcxx":"5-6",
+            "xq":"新校区",
+            "jcdm":"05,06",
+            "skbj":"100012-012",
+            "txxx":"",
+            "sftk":"0",
+            "skbh":"",
+            "skdd":"教南0212",
+            "rkjs":"言珍",
+            "jsdm":"782",
+            "rs":"95",
+            "kcmc":"毛泽东思想概论",
+            "xf":"2.0"
+        },
+        {
+            "skbjmc":"商英1807",
+            "dsz":"0",
+            "skzs":"1-18周",
+            "jcxx":"7-8",
+            "xq":"新校区",
+            "jcdm":"07,08",
+            "skbj":"020008-007",
+            "txxx":"",
+            "sftk":"0",
+            "skbh":"",
+            "skdd":"教南0110",
+            "rkjs":"关步云",
+            "jsdm":"241",
+            "rs":"48",
+            "kcmc":"英语口语（2-2）",
+            "xf":"2.0"
+        }
+    ],
+    "week3":[
+        {
+            "skbjmc":"商英1807",
+            "dsz":"0",
+            "skzs":"1-18周",
+            "jcxx":"1-2",
+            "xq":"新校区",
+            "jcdm":"01,02",
+            "skbj":"370122-016",
+            "txxx":"",
+            "sftk":"0",
+            "skbh":"",
+            "skdd":"实0315",
+            "rkjs":"郭长明",
+            "jsdm":"740",
+            "rs":"48",
+            "kcmc":"创新思维与方法",
+            "xf":"1.0"
+        },
+        {
+            "skbjmc":"商英1807",
+            "dsz":"0",
+            "skzs":"1-18周",
+            "jcxx":"3-4",
+            "xq":"新校区",
+            "jcdm":"03,04",
+            "skbj":"110004-016",
+            "txxx":"",
+            "sftk":"0",
+            "skbh":"",
+            "skdd":"实0108",
+            "rkjs":"张斌",
+            "jsdm":"108",
+            "rs":"48",
+            "kcmc":"计算机应用基础(2-2)",
+            "xf":"2.0"
+        },
+        {
+            "skbjmc":"商英1807",
+            "dsz":"0",
+            "skzs":"1-18周",
+            "jcxx":"5-6",
+            "xq":"新校区",
+            "jcdm":"05,06",
+            "skbj":"020010-007",
+            "txxx":"",
+            "sftk":"0",
+            "skbh":"",
+            "skdd":"实0218",
+            "rkjs":"彭永爱",
+            "jsdm":"212",
+            "rs":"48",
+            "kcmc":"英语听力（2-2）",
+            "xf":"2.0"
+        },
+        {
+            "skbjmc":"商英1807",
+            "dsz":"0",
+            "skzs":"1-18周",
+            "jcxx":"7-8",
+            "xq":"新校区",
+            "jcdm":"07,08",
+            "skbj":"020017-007",
+            "txxx":"",
+            "sftk":"0",
+            "skbh":"",
+            "skdd":"教南0109",
+            "rkjs":"陈睿",
+            "jsdm":"612",
+            "rs":"48",
+            "kcmc":"英语阅读（2-2）",
+            "xf":"4.0"
+        }
+    ],
+    "xq":"1",
+    "week2":[
+        {
+            "skbjmc":"商英1807",
+            "dsz":"0",
+            "skzs":"1-18周",
+            "jcxx":"3-4",
+            "xq":"新校区",
+            "jcdm":"03,04",
+            "skbj":"010047-009",
+            "txxx":"",
+            "sftk":"0",
+            "skbh":"",
+            "skdd":"教北0112",
+            "rkjs":"龙晓辉",
+            "jsdm":"181",
+            "rs":"48",
+            "kcmc":"国际贸易实务",
+            "xf":"4.0"
+        }
+    ],
+    "qssj":"2019-06-10",
+    "maxzc":"",
+    "week4":[
+        {
+            "skbjmc":"商英1807",
+            "dsz":"0",
+            "skzs":"1-18周",
+            "jcxx":"1-2",
+            "xq":"新校区",
+            "jcdm":"01,02",
+            "skbj":"020023-007",
+            "txxx":"",
+            "sftk":"0",
+            "skbh":"",
+            "skdd":"教南0109",
+            "rkjs":"吕晶晶",
+            "jsdm":"657",
+            "rs":"48",
+            "kcmc":"大学英语（2-2）",
+            "xf":"4.0"
+        },
+        {
+            "skbjmc":"商英1807",
+            "dsz":"0",
+            "skzs":"1-18周",
+            "jcxx":"3-4",
+            "xq":"新校区",
+            "jcdm":"03,04",
+            "skbj":"010047-009",
+            "txxx":"",
+            "sftk":"0",
+            "skbh":"",
+            "skdd":"教北0112",
+            "rkjs":"龙晓辉",
+            "jsdm":"181",
+            "rs":"48",
+            "kcmc":"国际贸易实务",
+            "xf":"4.0"
+        },
+        {
+            "skbjmc":"商英1807",
+            "dsz":"0",
+            "skzs":"1-18周",
+            "jcxx":"5-6",
+            "xq":"新校区",
+            "jcdm":"05,06",
+            "skbj":"020263-007",
+            "txxx":"",
+            "sftk":"0",
+            "skbh":"",
+            "skdd":"实0204",
+            "rkjs":"何佩蓉",
+            "jsdm":"226",
+            "rs":"48",
+            "kcmc":"英语语法",
+            "xf":"2.0"
+        },
+        {
+            "skbjmc":"商英1807",
+            "dsz":"0",
+            "skzs":"1-18周",
+            "jcxx":"7-8",
+            "xq":"新校区",
+            "jcdm":"07,08",
+            "skbj":"020017-007",
+            "txxx":"",
+            "sftk":"0",
+            "skbh":"",
+            "skdd":"教南0110",
+            "rkjs":"陈睿",
+            "jsdm":"612",
+            "rs":"48",
+            "kcmc":"英语阅读（2-2）",
+            "xf":"4.0"
+        }
+    ],
+    "week5":[
+        {
+            "skbjmc":"商英1807",
+            "dsz":"0",
+            "skzs":"1-18周",
+            "jcxx":"3-4",
+            "xq":"新校区",
+            "jcdm":"03,04",
+            "skbj":"020023-007",
+            "txxx":"",
+            "sftk":"0",
+            "skbh":"",
+            "skdd":"教南0108",
+            "rkjs":"吕晶晶",
+            "jsdm":"657",
+            "rs":"48",
+            "kcmc":"大学英语（2-2）",
+            "xf":"4.0"
+        },
+        {
+            "skbjmc":"商英1807 商英1808",
+            "dsz":"0",
+            "skzs":"1-16周",
+            "jcxx":"5-6",
+            "xq":"新校区",
+            "jcdm":"05,06",
+            "skbj":"100012-012",
+            "txxx":"",
+            "sftk":"0",
+            "skbh":"",
+            "skdd":"教南0212",
+            "rkjs":"言珍",
+            "jsdm":"782",
+            "rs":"95",
+            "kcmc":"毛泽东思想概论",
+            "xf":"2.0"
+        },
+        {
+            "skbjmc":"商英1807",
+            "dsz":"0",
+            "skzs":"1-18周",
+            "jcxx":"7-8",
+            "xq":"",
+            "jcdm":"07,08",
+            "skbj":"100002-016",
+            "txxx":"",
+            "sftk":"0",
+            "skbh":"",
+            "skdd":"",
+            "rkjs":"蔡邕湘",
+            "jsdm":"355",
+            "rs":"48",
+            "kcmc":"公共体育课(2-2)",
+            "xf":"1.0"
+        }
+    ],
+    "sjhjinfo":[
+
+    ]
+}
 ```
